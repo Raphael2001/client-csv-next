@@ -5,7 +5,6 @@ $current: $mobile;
   font-size: vw_size(16, $current);
   width: vw_size(100, $current);
   height: vw_size(30, $current);
-  
 
   &.create {
     @include cmsButtonBlue;
@@ -37,7 +36,7 @@ $current: $mobile;
   $current: $desktop;
 
   .button {
-    font-size: vw_size(25, $current);
+    font-size: vw_size(18, $current);
     width: vw_size(170, $current);
     height: vw_size(35, $current);
   }
@@ -47,7 +46,7 @@ $current: $mobile;
   $current: $desktop_max;
 
   .button {
-    font-size: vw_size(25, $current);
+    font-size: vw_size(18, $current);
     width: vw_size(170, $current);
     height: vw_size(35, $current);
   }

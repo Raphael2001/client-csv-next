@@ -1,8 +1,8 @@
 import ApiManager from "api/ApiManager";
 import API_METHODS from "constants/ApiMethods";
 
-import store from "redux/index";
-import Actions from "redux/actions";
+import store from "redux-store/index.ts";
+import Actions from "redux-store/actions/index.ts";
 import LOCAL_STORAGE_KEYS from "constants/LocalStorage";
 import { chekcForJWTexp, parseJWT } from "utils/functions";
 
@@ -114,7 +114,7 @@ class ApiRequests {
 
     props.headers = this.#refreshTokenHeaders();
 
-    return ApiManager.execute(props, API_METHODS.POST, "refresh", onSuccess);
+    return ApiManager.execute(props, API_METHODS.GET, "refresh", onSuccess);
   };
 
   addNewLanguage = async (props = {}) => {
@@ -226,14 +226,80 @@ class ApiRequests {
 
     return ApiManager.execute(props, API_METHODS.DELETE, "media", onSuccess);
   };
-  upsertItems = async (props = {}) => {
+
+  uploadClientsFile = async (props = {}) => {
+    function onSuccess(res) {
+      store.dispatch(Actions.setPendingClients(res.body.pending_clients));
+
+      typeof props.onSuccess === "function" && props.onSuccess(res.body);
+    }
+
+    props.headers = await this.#accessTokenHeaders();
+
+    return ApiManager.execute(props, API_METHODS.POST, "clients", onSuccess);
+  };
+
+  getLinkForPendingClients = async (props = {}) => {
     function onSuccess(res) {
       typeof props.onSuccess === "function" && props.onSuccess(res.body);
     }
 
     props.headers = await this.#accessTokenHeaders();
 
-    return ApiManager.execute(props, API_METHODS.POST, "items", onSuccess);
+    return ApiManager.execute(
+      props,
+      API_METHODS.GET,
+      "linkpendingclients",
+      onSuccess
+    );
+  };
+
+  getLinkForAvailableClients = async (props = {}) => {
+    function onSuccess(res) {
+      typeof props.onSuccess === "function" && props.onSuccess(res.body);
+    }
+
+    props.headers = await this.#accessTokenHeaders();
+
+    return ApiManager.execute(
+      props,
+      API_METHODS.GET,
+      "linkavailableclients",
+      onSuccess
+    );
+  };
+  getPendingClients = async (props = {}) => {
+    function onSuccess(res) {
+      store.dispatch(Actions.setPendingClients(res.body.pending_clients));
+
+      typeof props.onSuccess === "function" && props.onSuccess(res.body);
+    }
+
+    props.headers = await this.#accessTokenHeaders();
+
+    return ApiManager.execute(
+      props,
+      API_METHODS.GET,
+      "pendingclients",
+      onSuccess
+    );
+  };
+
+  getAvailableClients = async (props = {}) => {
+    function onSuccess(res) {
+      store.dispatch(Actions.setAvailableClients(res.body.clients));
+
+      typeof props.onSuccess === "function" && props.onSuccess(res.body);
+    }
+
+    props.headers = await this.#accessTokenHeaders();
+
+    return ApiManager.execute(
+      props,
+      API_METHODS.GET,
+      "availableclients",
+      onSuccess
+    );
   };
 }
 

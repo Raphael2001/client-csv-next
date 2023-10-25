@@ -10,7 +10,7 @@ import TableCreator from "components/TableCreator/TableCreator";
 import POPUP_TYPES from "constants/popup-types";
 import { React, useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 import styles from "./test.module.scss";
 

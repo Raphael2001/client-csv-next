@@ -237,44 +237,36 @@ Slices.push(tokensSlice);
 
 /* --------------------------------------------------------------- */
 
-export const itemsFormSlice = createSlice({
-  name: "itemsForm",
-  initialState: {},
+export const clientsSlice = createSlice({
+  name: "clients",
+  initialState: [],
   reducers: {
-    setItemsForm: (state, action) => action.payload,
-    setItemQuantity: (
-      state: { [key: string]: item },
-      action: PayloadAction<item>
-    ) => {
-      const { wooId, quantity } = action.payload;
-
-      const prevIds = state?.[wooId]?.powerLinkIds;
-      return {
-        ...state,
-        [wooId]: {
-          powerLinkIds: prevIds || [],
-          wooId,
-          quantity: Number(quantity),
-        },
-      };
-    },
-    setItemIds: (state: item[], action: PayloadAction<item>) => {
-      const { wooId, powerLinkIds } = action.payload;
-
-      const prevQuantity = state[wooId]?.quantity;
-
-      return {
-        ...state,
-        [wooId]: {
-          powerLinkIds,
-          wooId,
-          quantity: prevQuantity || 1,
-        },
-      };
-    },
+    setClients: (state, action) => action.payload,
   },
 });
-Slices.push(itemsFormSlice);
+Slices.push(clientsSlice);
+
+/* --------------------------------------------------------------- */
+
+export const pendingClientsSlice = createSlice({
+  name: "pendingClients",
+  initialState: [],
+  reducers: {
+    setPendingClients: (state, action) => action.payload,
+  },
+});
+Slices.push(pendingClientsSlice);
+
+/* --------------------------------------------------------------- */
+
+export const availableClientsSlice = createSlice({
+  name: "availableClients",
+  initialState: [],
+  reducers: {
+    setAvailableClients: (state, action) => action.payload,
+  },
+});
+Slices.push(availableClientsSlice);
 
 // build export objects
 for (const Slice of Slices) {

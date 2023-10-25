@@ -7,7 +7,7 @@ import WarnNotification from "./components/WarnNotification/WarnNotification";
 import SuccessNotification from "./components/SuccessNotification/SuccessNotification";
 import InfoNotification from "./components/InfoNotification/InfoNotification";
 
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 import NotificationsTypes from "constants/NotificationsTypes";
 
 import CloseIcon from "/public/assets/icons/close-icon.svg";

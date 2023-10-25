@@ -1,5 +1,5 @@
-import Store from "redux/index";
-import Actions from "redux/actions";
+import Store from "redux-store/index.ts";
+import Actions from "redux-store/actions";
 
 const DeviceState = (function () {
   const delay = 250;

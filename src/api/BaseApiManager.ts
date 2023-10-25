@@ -1,5 +1,5 @@
-import Actions from "redux/actions";
-import store from "../redux/index";
+import Actions from "redux-store/actions";
+import store from "../redux-store/index";
 import POPUP_TYPES from "constants/popup-types";
 
 const BaseApiManager = (function () {
@@ -13,7 +13,10 @@ const BaseApiManager = (function () {
     return api.baseUrl + "/" + api.api + "/" + api.version + "/" + methodName;
   }
 
-  function getHeaders() {
+  function getHeaders(isFormData = false) {
+    if (isFormData) {
+      return { "Content-Type": "multipart/form-data; charset=UTF-8" };
+    }
     return { "Content-Type": "application/json; charset=UTF-8" };
   }
 

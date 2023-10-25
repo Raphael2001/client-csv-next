@@ -9,7 +9,7 @@ import React, {
 } from "react";
 import { useDispatch } from "react-redux";
 
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 import basic from "./SlidePopup.module.scss";
 import XIcon from "/public/assets/icons/close-icon.svg";

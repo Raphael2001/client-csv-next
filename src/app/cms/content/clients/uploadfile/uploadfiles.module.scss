@@ -1,0 +1,68 @@
+@import "src/styles/imports.scss";
+$current: $mobile;
+.upload-file-page-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  .upload-btn-wrapper {
+    margin-top: vw_size(30, $current);
+  }
+  .file-uploaded-name {
+    margin-top: vw_size(15, $current);
+    font-size: vw_size(14, $current);
+  }
+  .button {
+    margin-top: vw_size(15, $current);
+  }
+}
+
+@media (min-width: $media-tablet) {
+  $current: $tablet;
+  .upload-file-page-wrapper {
+    .upload-btn-wrapper {
+      margin-top: vw_size(30, $current);
+    }
+    .file-uploaded-name {
+      margin-top: vw_size(15, $current);
+      font-size: vw_size(14, $current);
+    }
+    .button {
+      margin-top: vw_size(15, $current);
+    }
+  }
+}
+
+@media (min-width: $media-desktop) {
+  $current: $desktop;
+  .upload-file-page-wrapper {
+    .upload-btn-wrapper {
+      margin-top: vw_size(30, $current);
+    }
+    .file-uploaded-name {
+      margin-top: vw_size(20, $current);
+      font-size: vw_size(16, $current);
+    }
+    .button {
+      margin-top: vw_size(30, $current);
+      font-size: vw_size(18, $current);
+    }
+  }
+}
+
+@media (min-width: $media-desktop_large) {
+  $current: $desktop_max;
+  .upload-file-page-wrapper {
+    .upload-btn-wrapper {
+      margin-top: vw_size(30, $current);
+    }
+    .file-uploaded-name {
+      margin-top: vw_size(20, $current);
+      font-size: vw_size(16, $current);
+    }
+    .button {
+      margin-top: vw_size(30, $current);
+      font-size: vw_size(18, $current);
+    }
+  }
+}

@@ -3,7 +3,7 @@ import Api from "api/requests";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Validate from "utils/validation/validation";
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 import UserIcon from "/public/assets/icons/male-user.png";
 import AnimatedInput from "components/forms/AnimatedInput";

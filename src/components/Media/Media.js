@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Api from "api/requests";
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 import { useRouter } from "next/navigation";
 

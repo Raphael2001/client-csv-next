@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 //redux
 import { Provider } from "react-redux"; // Redux HOC
-import Store from "../../redux/index";
+import Store from "redux-store";
 
 import DeviceState from "utils/deviceState";
 

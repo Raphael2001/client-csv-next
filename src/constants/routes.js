@@ -12,6 +12,10 @@ const Routes = {
   cmsAddMedia: BaseRoutes.cms + "/media" + "/addNewMedia",
   cmsGeneral: BaseRoutes.cms + "/general",
   cmsHome: BaseRoutes.cms + "/main",
+  cmsClient: BaseRoutes.cms + "/clients",
+  cmsClientUploadFile: BaseRoutes.cms + "/clients" + "/uploadfile",
+  cmsClientPendingClients: BaseRoutes.cms + "/clients" + "/pendingclients",
+  cmsClientAvailableClients: BaseRoutes.cms + "/clients" + "/available",
 };
 
 export { BaseRoutes, Routes };

@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 // import actions
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 import styles from "./BurgerMenu.module.scss";
 
 import CmsSideBar from "components/CmsMenu/CmsSidebar/CmsSideBar";

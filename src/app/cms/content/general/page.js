@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import Api from "api/requests";
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 import styles from "./general.module.scss";
 import CmsButton from "components/CmsButton/CmsButton";

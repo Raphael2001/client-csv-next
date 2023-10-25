@@ -1,4 +1,4 @@
-import { dataReducers } from "redux/slices/data/index.ts";
+import { dataReducers } from "redux-store/slices/data";
 
 const Reducers = {};
 

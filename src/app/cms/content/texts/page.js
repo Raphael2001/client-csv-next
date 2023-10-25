@@ -4,7 +4,7 @@ import Api from "api/requests";
 
 import { useDispatch, useSelector } from "react-redux";
 
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 import POPUP_TYPES from "constants/popup-types";
 
 import styles from "./texts.module.scss";

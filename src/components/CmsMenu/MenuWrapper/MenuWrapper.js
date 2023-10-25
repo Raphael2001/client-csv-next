@@ -9,17 +9,26 @@ import Api from "api/requests";
 
 import styles from "./MenuWrapper.module.scss";
 import BurgerMenu from "../CmsHeader/BurgerMenu/BurgerMenu";
-import WithAuthCMS from "components/WithAuthCms/WithAuthCms";
+import { useRouter } from "next/navigation";
+import { Routes } from "constants/routes";
 
 function MenuWrapper(props) {
   const { children } = props;
   const deviceState = useSelector((store) => store.deviceState);
   const isBurgerOpen = useSelector((store) => store.burgerState);
   const userData = useSelector((store) => store.userData);
+  const router = useRouter();
+  const tokens = useSelector((store) => store.tokens);
 
   useEffect(() => {
     if (userData) {
       Api.Init();
+    }
+  }, []);
+
+  useEffect(() => {
+    if (!tokens?.accessToken) {
+      router.replace(Routes.cmsLogin);
     }
   }, []);
 
@@ -42,4 +51,4 @@ function MenuWrapper(props) {
   );
 }
 
-export default WithAuthCMS(MenuWrapper);
+export default MenuWrapper;

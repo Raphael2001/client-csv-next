@@ -6,7 +6,7 @@ import LogoutIcon from "/public/assets/icons/logout.svg";
 import styles from "./LogoutButton.module.scss";
 import LOCAL_STORAGE_KEYS from "constants/LocalStorage";
 import { useDispatch } from "react-redux";
-import Actions from "redux/actions";
+import Actions from "redux-store/actions";
 
 function LogoutButton(props) {
   const dispatch = useDispatch();
