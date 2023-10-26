@@ -10,8 +10,10 @@ import CmsButton from "components/CmsButton/CmsButton";
 import Languages from "components/Languages/Languages";
 import AutoGrowTextArea from "components/forms/AutoGrowTextArea/AutoGrowTextArea";
 import CmsMutliGeneralInfo from "components/CmsMutliGeneralInfo/CmsMutliGeneralInfo";
+import NotificationsTypes from "constants/NotificationsTypes";
 export default function GeneralPage() {
   const mails = useSelector((store) => store.init?.mail);
+  const dispatch = useDispatch();
 
   const [form, setForm] = useState({
     mail: "",
@@ -27,6 +29,18 @@ export default function GeneralPage() {
     setForm(newState);
   }
 
+  function mergeClients() {
+    function onSuccess(data) {
+      dispatch(
+        Actions.addNotification({
+          type: NotificationsTypes.SUCCCESS,
+          payload: { title: "עודכן בהצלחה", text: "המידע עודכן בהצלחה" },
+        })
+      );
+    }
+    Api.mergeClients({ onSuccess });
+  }
+
   return (
     <div className={styles["general-info-wrapper"]}>
       <Languages form={form} onChangeForm={onChangeForm} setForm={setForm} />
@@ -36,6 +50,13 @@ export default function GeneralPage() {
         subtitle={"לא יוצג ללקוח"}
         name="mail"
       />
+      <div className={styles["btn-update-clients-wrapper"]}>
+        <CmsButton
+          className="update"
+          title={"עדכון לקוחות"}
+          onClick={mergeClients}
+        />
+      </div>
     </div>
   );
 }

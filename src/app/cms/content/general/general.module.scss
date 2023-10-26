@@ -50,6 +50,12 @@ $current: $mobile;
       }
     }
   }
+  .btn-update-clients-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: vw_size(20, $current);
+  }
 }
 
 @media (min-width: $media-tablet) {
@@ -95,6 +101,9 @@ $current: $mobile;
           font-size: vw_size(20, $current);
         }
       }
+    }
+    .btn-update-clients-wrapper {
+      margin-top: vw_size(20, $current);
     }
   }
 }
@@ -142,6 +151,9 @@ $current: $mobile;
           font-size: vw_size(25, $current);
         }
       }
+    }
+    .btn-update-clients-wrapper {
+      margin-top: vw_size(30, $current);
     }
   }
 }

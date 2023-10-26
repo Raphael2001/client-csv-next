@@ -301,6 +301,22 @@ class ApiRequests {
       onSuccess
     );
   };
+
+  mergeClients = async (props = {}) => {
+    function onSuccess(res) {
+      store.dispatch(Actions.setPendingClients([]));
+      typeof props.onSuccess === "function" && props.onSuccess(res.body);
+    }
+
+    props.headers = await this.#accessTokenHeaders();
+
+    return ApiManager.execute(
+      props,
+      API_METHODS.GET,
+      "mergeclients",
+      onSuccess
+    );
+  };
 }
 
 const Api = new ApiRequests();
